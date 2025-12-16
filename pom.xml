@@ -6,9 +6,47 @@
     <groupId>cn.tj.food</groupId>
     <artifactId>gbc</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common</module>
+        <module>server</module>
+    </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jbgz.version>1.0-SNAPSHOT</jbgz.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.tj.food</groupId>
+                <artifactId>jbgz</artifactId>
+                <version>${jbgz.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <config>dev</config>
+                <commonEnv>common</commonEnv>
+                <serverExtEnv>server</serverExtEnv>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <config>test</config>
+                <commonEnv>common</commonEnv>
+                <serverExtEnv>server</serverExtEnv>
+            </properties>
+        </profile>
+    </profiles>
 </project>
