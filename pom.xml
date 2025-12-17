@@ -34,7 +34,7 @@
             <properties>
                 <config>dev</config>
                 <commonEnv>common</commonEnv>
-                <serverExtEnv>server</serverExtEnv>
+                <serverEnv>server</serverEnv>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -45,7 +45,7 @@
             <properties>
                 <config>test</config>
                 <commonEnv>common</commonEnv>
-                <serverExtEnv>server</serverExtEnv>
+                <serverEnv>server</serverEnv>
             </properties>
         </profile>
     </profiles>
